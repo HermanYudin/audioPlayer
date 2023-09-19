@@ -35,13 +35,13 @@ text-align: center;
 }
 
 .music-name{
-    font-size: 40px;
+    font-size: 25px;
     font-weight: 500;
     margin-bottom: 10px;
 }
 
 .artist-name{
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .disk{
@@ -53,7 +53,14 @@ text-align: center;
     border-radius: 50%;
     background-image: url('./covers/skid.jpg');
     background-size: cover;
+    background-position: center;
     box-shadow: 0 20px 100px rgba(255, 255, 255, 1);
+    animation: rotateDisk 15s linear infinite;
+    animation-play-state: paused;
+}
+
+.disk.play{
+    animation-play-state: running;
 }
 
 .song-slider{
@@ -89,9 +96,9 @@ text-align: center;
 }
 
 .controls{
-    width: 100%;
+    width: 60%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin:0 auto;
     margin-top:20px;
@@ -102,7 +109,7 @@ text-align: center;
     width:60px;
     height:60px;
     border-radius: 50%;
-    background:white;
+    background:none;
     cursor: pointer;
     border:none;
 }
@@ -129,7 +136,7 @@ text-align: center;
     transform: translateY(-50%) scaleY(0);
 }
 
-.play-btn span:nth-child(1){
+.play-btn.pause span:nth-child(1){
     width: 35%;
     left:56%;
     transform: translate(-50%, -50%);
@@ -139,6 +146,18 @@ text-align: center;
 
 .play-btn.pause{
     animation: pulse 2s linear infinite;
+}
+
+.backward-img,
+.forward-img{
+    width: 36px;
+    height: 36px;
+}
+
+.btn{
+    border:none;
+    background: none;
+    cursor: pointer;
 }
 
 @keyframes pulse {
@@ -154,3 +173,14 @@ text-align: center;
         opacity: 1;
     }
 }
+
+@keyframes rotateDisk{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+

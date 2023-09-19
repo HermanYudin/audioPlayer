@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <audio src="" id="audio"></audio>
+
     <div class="music-player">
         <h1 class="music-name">Big Guns</h1>
         <p class="artist-name">Skid Row</p>
@@ -21,14 +23,16 @@
             <span class="song-duration">00:00</span>
         </div>
         <div class="controls">
-            <button class="play-btn">
-                <span></span>
-                <span></span>
+            <button class="btn backward-btn"><img src="/imgs/backward.png" class="backward-img"></button>
+            <button class="play-btn pause">
+            <span></span>
+            <span></span>
             </button>
+            <button class="btn forward-btn"><img src="/imgs/forward.png" class="forward-img"></button>
         </div>
     </div>
 
-    
+    <script src="data.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
