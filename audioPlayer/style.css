@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('./imgs/back.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Inter', sans-serif;
+}
+
+.music-player{
+    height:550px;
+    width:350px;
+    border-radius: 20px;
+    border:3px solid black;
+    background-color: rgba(102,0,0, 0.9);
+    box-shadow: 0 40px 100px rgba(255, 255, 255, 1);
+    padding: 30px;
+    overflow: hidden;
+    color: white;
+}
+
+.music-name,
+.artist-name{
+text-transform: capitalize;
+text-align: center;
+}
+
+.music-name{
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.artist-name{
+    font-size: 20px;
+}
+
+.disk{
+    display: block;
+    margin:40px auto;
+    position: relative;
+    width: 180px;
+    height:180px;
+    border-radius: 50%;
+    background-image: url('./covers/skid.jpg');
+    background-size: cover;
+    box-shadow: 0 20px 100px rgba(255, 255, 255, 1);
+}
+
+.song-slider{
+    width: 100%;
+    position: relative;
+}
+
+.seek-bar{
+    -webkit-appearance: none;
+    width: 100%;
+    height:5px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: white;
+    overflow: hidden;
+}
+
+.seek-bar::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width:1px;
+    height:20px;
+    box-shadow: -400px 0 0 400px black;
+}
+
+.current-time,
+.song-duration{
+    font-size: 14px;
+}
+
+.song-duration{
+    position: absolute;
+    right:0;
+}
+
+.controls{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;
+    margin-top:20px;
+}
+
+.play-btn{
+    position: relative;
+    width:60px;
+    height:60px;
+    border-radius: 50%;
+    background:white;
+    cursor: pointer;
+    border:none;
+}
+
+.play-btn span{
+    position: absolute;
+    top:50%;
+    left:25%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 30px;
+    border-radius: 2px;
+    background: black;
+    transition: .5s;
+    clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+}
+
+.play-btn span:nth-child(2){
+    left: 55%;
+    transform-origin: center;
+}
+
+.play-btn.pause span:nth-child(2){
+    transform: translateY(-50%) scaleY(0);
+}
+
+.play-btn span:nth-child(1){
+    width: 35%;
+    left:56%;
+    transform: translate(-50%, -50%);
+    border-radius: 0;
+    clip-path: polygon(0 0,100% 50%,100% 50%,0 100%);
+}
+
+.play-btn.pause{
+    animation: pulse 2s linear infinite;
+}
+
+@keyframes pulse {
+    0%{
+        box-shadow: 0;
+    }
+    50%{
+        box-shadow: 0 0 0 5px white;
+        opacity: 0.5;
+    }
+    100%{
+        box-shadow: 0 0 0 5px white;
+        opacity: 1;
+    }
+}
