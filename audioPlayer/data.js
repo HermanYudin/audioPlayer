@@ -28,7 +28,20 @@ let songs = [
         path: 'music/Stigmata - Сентябрь Горит.mp3',
         artist: 'Stigmata',
         cover: 'covers/sept.jpg'
-    }
+    },
+    {
+        name: 'Wings of a Butterfly',
+        path: 'music/HIM - Wings of a Butterfly.mp3',
+        artist: 'HIM',
+        cover: 'covers/him.jpg'
+    },
+    {
+        name: 'Psychosocial',
+        path: 'music/Slipknot - Psychosocial.mp3',
+        artist: 'Slipknot',
+        cover: 'covers/slip.jpg'
+    },
+    
 ];
 
 
