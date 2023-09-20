@@ -108,11 +108,17 @@ const setMusic = function(i) {
     currentTime.innerHTML = '00:00';
 
     console.log(music.duration);
+    if(music.duration === NaN){
+        musicDuration.innerHTML = '00:00';
+    }
+    else{
+        musicDuration.innerHTML = formatTime(music.duration);
+    }
     
     setTimeout(function(){//без этого считать продолжительность песни не будет
     seekBar.max = music.duration;
     console.log(music.duration);
-    if(formatTime(music.duration) === 'NaN:NaN'){
+    if(music.duration === NaN){
         musicDuration.innerHTML = '00:00';
     }
     else{
