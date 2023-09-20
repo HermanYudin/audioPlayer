@@ -169,7 +169,7 @@ text-align: center;
     width: 100%;
     background-color: black;
     opacity: 0.9;
-    max-height: 60px;
+    max-height: 66.5px;
   }
 
   .git-name{
@@ -201,8 +201,9 @@ text-align: center;
   }
 
   .rs-logo{
-    height: 66.5px;
+    height: 64px;
     max-width: 100%;
+    margin-bottom: 2px;
   }
 
   .github-text,
@@ -246,6 +247,10 @@ text-align: center;
 }
 
 @media (max-width: 680px) and (min-width: 1px) {
+
+.footer{
+max-height: 66.5px;
+}
 
 .year,
 .github-link{
