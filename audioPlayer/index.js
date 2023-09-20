@@ -123,17 +123,10 @@ const setMusic = (i) => {
     disk.style.backgroundImage = `url('${song.cover}')`;
 
     currentTime.innerHTML = '00:00';
-
-    if(music.duration === NaN){
-        musicDuration.innerHTML = '00:00';
-    }
-    else{
-        musicDuration.innerHTML = formatTime(music.duration);
-    }
     
     setTimeout(function(){//без этого считать продолжительность песни не будет
     seekBar.max = music.duration;
-    
+
     if(music.duration === NaN){
         musicDuration.innerHTML = '00:00';
     }
