@@ -264,7 +264,9 @@ text-align: center;
     width: 310px;
     }
 
-    .year-container{
+    .year-container,
+    .git-name,
+    .school{
         height:68px;
     }
 }
