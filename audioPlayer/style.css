@@ -169,13 +169,12 @@ text-align: center;
     width: 100%;
     background-color: black;
     opacity: 0.9;
-    max-height: 66.5px;
+    max-height: 69px;
   }
 
   .git-name{
     width:33.333%;
     background-color: black;
-    height:inherit;
   }
 
   .github-link{
@@ -188,13 +187,11 @@ text-align: center;
 
   .year-container{
     width:33.334%;
-    height:inherit;
   }
 
   .school{
     width:33.333%;
     background-color: rgba(102,0,0, 0.9);
-    height:inherit;
   }
 
   .school-link{
@@ -204,13 +201,12 @@ text-align: center;
   }
 
   .rs-logo{
-    height: 64px;
+    height: 69px;
     max-width: 100%;
-    margin-bottom: 2px;
   }
 
   .github-text{
-    height: 66.5px;
+    height: 69px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -258,10 +254,6 @@ text-align: center;
 
 @media (max-width: 680px) and (min-width: 1px) {
 
-.footer{
-max-height: 66.5px;
-}
-
 .year,
 .github-link{
     font-size: 13px;
@@ -270,5 +262,9 @@ max-height: 66.5px;
     .music-player{
     height: 510px;
     width: 310px;
+    }
+
+    .year-container{
+        height:68px;
     }
 }
