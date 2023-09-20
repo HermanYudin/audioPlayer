@@ -251,4 +251,9 @@ text-align: center;
 .github-link{
     font-size: 13px;
     }
+
+    .music-player{
+    height: 510px;
+    width: 310px;
+    }
 }
