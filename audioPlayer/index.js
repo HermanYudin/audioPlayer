@@ -1,4 +1,22 @@
 let currentMusic = 0;
+
+// -------------Форматируем время песни в минуты и секунды---
+
+const formatTime = (time) => {
+    let min = Math.floor(time / 60);
+    if(min < 10){
+        min = `0${min}`;
+    }
+    let sec = Math.floor(time % 60);
+    if(sec < 10){
+        sec = `0${sec}`;
+    }
+    return `${min}:${sec}`;
+}
+
+formatTime();
+
+
 const music = document.querySelector('#audio');
 const seekBar = document.querySelector('.seek-bar');
 const songName = document.querySelector('.music-name');
@@ -57,23 +75,6 @@ let songs = [
     
 ];
 
-// -------------Форматируем время песни в минуты и секунды---
-
-const formatTime = (time) => {
-    let min = Math.floor(time / 60);
-    if(min < 10){
-        min = `0${min}`;
-    }
-    let sec = Math.floor(time % 60);
-    if(sec < 10){
-        sec = `0${sec}`;
-    }
-    return `${min}:${sec}`;
-}
-
-formatTime();
-
-
 // --------------Кликеры---------------
 
 playBtn.addEventListener('click', function(){
@@ -111,7 +112,7 @@ backwardBtn.addEventListener('click', function(){
 
 // ------------Ставим по i музыку, обложку и название-----
 
-const setMusic = function(i) {
+const setMusic = (i) => {
     seekBar.value = 0;
     let song = songs[i];
     currentMusic = i;
@@ -123,7 +124,6 @@ const setMusic = function(i) {
 
     currentTime.innerHTML = '00:00';
 
-    console.log(music.duration);
     if(music.duration === NaN){
         musicDuration.innerHTML = '00:00';
     }
@@ -133,7 +133,7 @@ const setMusic = function(i) {
     
     setTimeout(function(){//без этого считать продолжительность песни не будет
     seekBar.max = music.duration;
-    console.log(Math.floor(music.duration));
+    
     if(music.duration === NaN){
         musicDuration.innerHTML = '00:00';
     }
