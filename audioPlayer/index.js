@@ -57,6 +57,22 @@ let songs = [
     
 ];
 
+// -------------Форматируем время песни в минуты и секунды---
+
+const formatTime = (time) => {
+    let min = Math.floor(time / 60);
+    if(min < 10){
+        min = `0${min}`;
+    }
+    let sec = Math.floor(time % 60);
+    if(sec < 10){
+        sec = `0${sec}`;
+    }
+    return `${min}:${sec}`;
+}
+
+formatTime();
+
 
 // --------------Кликеры---------------
 
@@ -117,7 +133,7 @@ const setMusic = function(i) {
     
     setTimeout(function(){//без этого считать продолжительность песни не будет
     seekBar.max = music.duration;
-    console.log(music.duration);
+    console.log(Math.floor(music.duration));
     if(music.duration === NaN){
         musicDuration.innerHTML = '00:00';
     }
@@ -128,20 +144,6 @@ const setMusic = function(i) {
 }
 
 setMusic(0);
-
-// -------------Форматируем время песни в минуты и секунды---
-
-const formatTime = (time) => {
-    let min = Math.floor(time / 60);
-    if(min < 10){
-        min = `0${min}`;
-    }
-    let sec = Math.floor(time % 60);
-    if(sec < 10){
-        sec = `0${sec}`;
-    }
-    return `${min}:${sec}`;
-}
 
 setInterval(() => {
     seekBar.value = music.currentTime;
