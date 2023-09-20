@@ -187,7 +187,6 @@ text-align: center;
 
   .year-container{
     width:33.334%;
-    background-color: blue;
   }
 
   .school{
@@ -202,7 +201,8 @@ text-align: center;
   }
 
   .rs-logo{
-    max-height: 66.5px;
+    height: 66.5px;
+    max-width: 100%;
   }
 
   .github-text,
@@ -245,4 +245,10 @@ text-align: center;
     }
 }
 
+@media (max-width: 680px) and (min-width: 1px) {
 
+.year,
+.github-link{
+    font-size: 13px;
+    }
+}
