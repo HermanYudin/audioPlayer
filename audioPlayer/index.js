@@ -136,8 +136,6 @@ const setMusic = (i) => {
     },300);
 }
 
-setMusic(0);
-
 setInterval(() => {
     seekBar.value = music.currentTime;
     currentTime.innerHTML = formatTime(music.currentTime);
