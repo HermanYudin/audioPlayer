@@ -5,13 +5,13 @@ let currentMusic = 0;
 const formatTime = (time) => {
     let min = Math.floor(time / 60);
     if(min < 10){
-        min = `0${min}`;
+        min = "0" + min;
     }
     let sec = Math.floor(time % 60);
     if(sec < 10){
-        sec = `0${sec}`;
+        sec = "0" + sec;
     }
-    return `${min}:${sec}`;
+    return min + ":" + sec;
 }
 
 formatTime();
@@ -125,7 +125,6 @@ muteBtn.addEventListener("click", function () {
   });
 
 // ------------Ставим по i музыку, обложку и название-----
-
 const setMusic = (i) => {
     seekBar.value = 0;
     let song = songs[i];
@@ -139,8 +138,8 @@ const setMusic = (i) => {
     currentTime.innerHTML = '00:00';
     setTimeout(function(){//без этого считать продолжительность песни не будет
     seekBar.max = music.duration;
-        musicDuration.innerText = formatTime(music.duration);
-    },300);
+    musicDuration.innerText = formatTime(music.duration);
+    },500);
 }
 
 setMusic(0);
