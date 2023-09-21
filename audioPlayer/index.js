@@ -25,6 +25,7 @@ const musicDuration = document.querySelector(".song-duration");
 const playBtn = document.querySelector(".play-btn");
 const forwardBtn = document.querySelector(".forward-btn");
 const backwardBtn = document.querySelector(".backward-btn");
+const muteBtn = document.querySelector(".mute-btn");
 
 let songs = [
   {
@@ -89,6 +90,7 @@ forwardBtn.addEventListener("click", function () {
   } else {
     currentMusic++;
   }
+  main.removeChild(music);
   setMusic(currentMusic);
   playMusic();
 });
@@ -99,8 +101,13 @@ backwardBtn.addEventListener("click", function () {
   } else {
     currentMusic--;
   }
+  main.removeChild(music);
   setMusic(currentMusic);
   playMusic();
+});
+
+muteBtn.addEventListener("click", function () {
+    music.volume = 0;
 });
 
 // ------------Ставим по i музыку, обложку и название-----
@@ -110,24 +117,20 @@ const setMusic = (i) => {
   let song = songs[i];
   currentMusic = i;
   music = document.createElement("audio");
+  main.appendChild(music);
   music.setAttribute("src", song.path);
   music.load();
   music.addEventListener("canplay", function () {
+    music.pause();
     songName.innerHTML = song.name;
     artistName.innerHTML = song.artist;
     disk.style.backgroundImage = `url('${song.cover}')`;
 
     currentTime.innerHTML = "00:00";
-    setTimeout(function () {
-      //без этого считать продолжительность песни не будет
-      seekBar.max = music.duration;
-
-      if (music.duration === NaN) {
-        musicDuration.innerHTML = "00:00";
-      } else {
-        musicDuration.innerHTML = formatTime(music.duration);
-      }
-    }, 300);
+    //без этого считать продолжительность песни не будет
+    seekBar.max = music.duration;
+    musicDuration.innerHTML = formatTime(music.duration);
+    music.play();
   });
 };
 
