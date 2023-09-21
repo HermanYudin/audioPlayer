@@ -141,10 +141,10 @@ const setMusic = (i) => {
     seekBar.max = music.duration;
 
     if(music.duration === NaN){
-        musicDuration.innerHTML = '00:00';
+        musicDuration.textContent = '00:00';
     }
     else{
-        musicDuration.innerHTML = formatTime(music.duration);
+        musicDuration.textContent = formatTime(music.duration);
     }
     },300);
 }
