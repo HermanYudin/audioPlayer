@@ -14,6 +14,8 @@ const formatTime = (time) => {
     return `${min}:${sec}`;
 }
 
+formatTime();
+
 
 const music = document.querySelector('#audio');
 const seekBar = document.querySelector('.seek-bar');
@@ -114,6 +116,7 @@ const setMusic = (i) => {
     seekBar.value = 0;
     let song = songs[i];
     currentMusic = i;
+    music.src = song.path;
 
     songName.innerHTML = song.name;
     artistName.innerHTML = song.artist;
@@ -122,10 +125,9 @@ const setMusic = (i) => {
     currentTime.innerHTML = '00:00';
     setTimeout(function(){//без этого считать продолжительность песни не будет
     seekBar.max = music.duration;
-    music.src = song.path;
 
-    if(isNaN(music.duration)){
-        setMusic();
+    if(music.duration === NaN){
+        musicDuration.innerHTML = '00:00';
     }
     else{
         musicDuration.innerHTML = formatTime(music.duration);
@@ -133,7 +135,7 @@ const setMusic = (i) => {
     },300);
 }
 
-setMusic(0);
+setMusic(0); 
 
 setInterval(() => {
     seekBar.value = music.currentTime;
