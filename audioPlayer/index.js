@@ -135,7 +135,7 @@ const setMusic = (i) => {
     },300);
 }
 
-setMusic(0); 
+setMusic(0);
 
 setInterval(() => {
     seekBar.value = music.currentTime;
