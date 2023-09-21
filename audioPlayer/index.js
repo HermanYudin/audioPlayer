@@ -117,6 +117,7 @@ const setMusic = (i) => {
     let song = songs[i];
     currentMusic = i;
     music.src = song.path;
+    music.load();
 
     songName.innerHTML = song.name;
     artistName.innerHTML = song.artist;
