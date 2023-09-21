@@ -292,7 +292,6 @@ text-align: center;
     }
 
     .music-player{
-    height: 510px;
-    width: 310px;
+    max-width: 310px;
     }
 }
