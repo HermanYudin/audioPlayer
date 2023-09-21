@@ -250,7 +250,7 @@ text-align: center;
     transition: all 0.2s;
   }
 
-  .mute-btn:hover{
+  .muted{
     border:2px solid black;
     color:black;
     background-color: white;

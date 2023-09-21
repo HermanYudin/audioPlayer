@@ -107,8 +107,15 @@ backwardBtn.addEventListener("click", function () {
 });
 
 muteBtn.addEventListener("click", function () {
+    if(!muteBtn.classList.contains('muted')) {
+    muteBtn.classList.add('muted');
     music.volume = 0;
-});
+    }
+    else if(muteBtn.classList.contains('muted')) {
+        muteBtn.classList.remove('muted');
+        music.volume = 1; 
+    }
+  });
 
 // ------------Ставим по i музыку, обложку и название-----
 
@@ -117,20 +124,27 @@ const setMusic = (i) => {
   let song = songs[i];
   currentMusic = i;
   music = document.createElement("audio");
-  main.appendChild(music);
-  music.setAttribute("src", song.path);
-  music.load();
-  music.addEventListener("canplay", function () {
-    music.pause();
-    songName.innerHTML = song.name;
-    artistName.innerHTML = song.artist;
-    disk.style.backgroundImage = `url('${song.cover}')`;
+  setTimeout(() => {
+    main.appendChild(music);
+    music.setAttribute("src", song.path);
+    music.autoplay = false;
+    music.load();
+    music.addEventListener(
+      "canplay",
+      function () {
+        music.pause();
+        songName.innerHTML = song.name;
+        artistName.innerHTML = song.artist;
+        disk.style.backgroundImage = `url('${song.cover}')`;
 
-    currentTime.innerHTML = "00:00";
-    //без этого считать продолжительность песни не будет
-    seekBar.max = music.duration;
-    musicDuration.innerHTML = formatTime(music.duration);
-    music.play();
+        currentTime.innerHTML = "00:00";
+        //без этого считать продолжительность песни не будет
+        seekBar.max = music.duration;
+        musicDuration.innerHTML = formatTime(music.duration);
+        music.play();
+      },
+      500
+    );
   });
 };
 
